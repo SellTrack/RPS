@@ -1,0 +1,1449 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
+
+public class game_Frame_3_1 extends JFrame implements ActionListener {
+
+    ImageIcon stone_button = new ImageIcon("sprites/stone.png");
+    ImageIcon scissors_button = new ImageIcon("sprites/scissors.png");
+    ImageIcon paper_button = new ImageIcon("sprites/paper.png");
+
+    ImageIcon stone_button2 = new ImageIcon("sprites/heavy_stone.png");
+    ImageIcon scissors_button2 = new ImageIcon("sprites/master_scissors.png");
+    ImageIcon paper_button2 = new ImageIcon("sprites/special_paper.png");
+
+    JLabel stone_logo, paper_logo, scissors_logo, stone_logo2, paper_logo2, scissors_logo2, stone_logo3, paper_logo3,
+            scissors_logo3;
+    JPanel slot_1, slot_2, slot_3, slot_4, slot_5, pc_interface, user_interface, damage_interface, round_interface;
+    JLabel round_interface_count;
+    JPanel[] panel_Array;
+    JButton but1, but2, but3, but4, but5;
+    JButton[] but_array;
+    double a = 0.2;
+    // int stat_array[][];
+    int roundcount = 1;
+    String[][] computer_array;
+    Random random = new Random();
+    String[] transport = new String[5];
+    String[][] stat_array = new String[5][4];
+
+    JLabel stats_values_hp_a = new JLabel();
+    JLabel stats_values_xp_a = new JLabel();
+    JLabel stats_values_lvl_a = new JLabel();
+    JLabel stats_values_hp_b = new JLabel();
+    JLabel stats_values_xp_b = new JLabel();
+    JLabel stats_values_lvl_b = new JLabel();
+    JLabel stats_values_hp_c = new JLabel();
+    JLabel stats_values_xp_c = new JLabel();
+    JLabel stats_values_lvl_c = new JLabel();
+    JLabel stats_values_hp_d = new JLabel();
+    JLabel stats_values_xp_d = new JLabel();
+    JLabel stats_values_lvl_d = new JLabel();
+    JLabel stats_values_hp_e = new JLabel();
+    JLabel stats_values_xp_e = new JLabel();
+    JLabel stats_values_lvl_e = new JLabel();
+
+    game_Frame_3_1(String Transport[]) {
+        panel_Array = new JPanel[5];
+
+        stone_logo = new JLabel();
+        stone_logo.setBounds(42, 88, 100, 100);
+        stone_logo.setIcon(stone_button);
+        stone_logo.setVisible(false);
+
+        scissors_logo = new JLabel();
+        stone_logo.setOpaque(true);
+        scissors_logo.setBounds(42, 88, 100, 100);
+        scissors_logo.setIcon(scissors_button);
+        scissors_logo.setVisible(false);
+
+        paper_logo = new JLabel();
+        stone_logo.setOpaque(true);
+        paper_logo.setBounds(42, 88, 100, 100);
+        paper_logo.setIcon(paper_button);
+        paper_logo.setVisible(false);
+
+        stone_logo2 = new JLabel();
+        stone_logo2.setBounds(42, 88, 100, 100);
+        stone_logo2.setIcon(stone_button);
+        stone_logo2.setVisible(false);
+
+        scissors_logo2 = new JLabel();
+        stone_logo2.setOpaque(true);
+        scissors_logo2.setBounds(42,88, 100, 100);
+        scissors_logo2.setIcon(scissors_button);
+        scissors_logo2.setVisible(false);
+
+        paper_logo2 = new JLabel();
+        stone_logo2.setOpaque(true);
+        paper_logo2.setBounds(0, 0, 100, 100);
+        paper_logo2.setIcon(paper_button);
+        paper_logo2.setVisible(false);
+
+        stone_logo3 = new JLabel();
+        stone_logo3.setBounds(0, 0, 100, 100);
+        stone_logo3.setIcon(stone_button);
+        stone_logo3.setVisible(false);
+
+        scissors_logo3 = new JLabel();
+        stone_logo3.setOpaque(true);
+        scissors_logo3.setBounds(0, 0, 100, 100);
+        scissors_logo3.setIcon(scissors_button);
+        scissors_logo3.setVisible(false);
+
+        paper_logo3 = new JLabel();
+        stone_logo3.setOpaque(true);
+        paper_logo3.setBounds(0, 0, 100, 100);
+        paper_logo3.setIcon(paper_button);
+        paper_logo3.setVisible(false);
+
+        String[] computer = new String[5];
+        int[] numberarray = new int[5];
+        for (int i = 0; i < 5; i++) {
+            numberarray[i] = random.nextInt(3);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (numberarray[i] == 0) {
+                computer[i] = "stone";
+            }
+
+            if (numberarray[i] == 1) {
+                computer[i] = "paper";
+            }
+
+            if (numberarray[i] == 2) {
+                computer[i] = "scissors";
+            }
+        }
+        computer_array = new String[5][4];
+
+        computer_array[0][0] = computer[0];
+        computer_array[1][0] = computer[1];
+        computer_array[2][0] = computer[2];
+        computer_array[3][0] = computer[3];
+        computer_array[4][0] = computer[4];
+        computer_array[0][1] = "20";
+        computer_array[1][1] = "20";
+        computer_array[2][1] = "20";
+        computer_array[3][1] = "20";
+        computer_array[4][1] = "20";
+        computer_array[0][2] = "0";
+        computer_array[1][2] = "0";
+        computer_array[2][2] = "0";
+        computer_array[3][2] = "0";
+        computer_array[4][2] = "0";
+        computer_array[0][3] = "1";
+        computer_array[1][3] = "1";
+        computer_array[2][3] = "1";
+        computer_array[3][3] = "1";
+        computer_array[4][3] = "1";
+
+        but_array = new JButton[5];
+
+        transport = Transport;
+        System.out.println(transport[0]);
+        System.out.println(transport[1]);
+        System.out.println(transport[2]);
+        System.out.println(transport[3]);
+        System.out.println(transport[4]);
+
+        stat_array[0][0] = transport[0];
+        stat_array[1][0] = transport[1];
+        stat_array[2][0] = transport[2];
+        stat_array[3][0] = transport[3];
+        stat_array[4][0] = transport[4];
+        stat_array[0][1] = "20";
+        stat_array[1][1] = "20";
+        stat_array[2][1] = "20";
+        stat_array[3][1] = "20";
+        stat_array[4][1] = "20";
+        stat_array[0][2] = "0";
+        stat_array[1][2] = "0";
+        stat_array[2][2] = "0";
+        stat_array[3][2] = "0";
+        stat_array[4][2] = "0";
+        stat_array[0][3] = "1";
+        stat_array[1][3] = "1";
+        stat_array[2][3] = "1";
+        stat_array[3][3] = "1";
+        stat_array[4][3] = "1";
+        JLabel title = new JLabel();
+        title.setText("RPS+");
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setVerticalAlignment(JLabel.CENTER);
+        title.setForeground(Color.white);
+        title.setFont(new Font("Aldrich", Font.PLAIN, 64));
+        title.setBounds(294, 38, 212, 63);
+
+        JLabel stats_name_a = new JLabel();
+        stats_name_a.setText("HP:");
+        stats_name_a.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_a.setVerticalAlignment(JLabel.CENTER);
+        stats_name_a.setForeground(Color.white);
+        stats_name_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_a.setBounds(0, 111, 36, 20);
+
+        JLabel stats_name_2_a = new JLabel();
+        stats_name_2_a.setText("XP:");
+        stats_name_2_a.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_2_a.setVerticalAlignment(JLabel.CENTER);
+        stats_name_2_a.setForeground(Color.white);
+        stats_name_2_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_a.setBounds(0, 142, 34, 20);
+
+        JLabel stats_name_3_a = new JLabel();
+        stats_name_3_a.setText("LVL:");
+        stats_name_3_a.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_3_a.setVerticalAlignment(JLabel.CENTER);
+        stats_name_3_a.setForeground(Color.white);
+        stats_name_3_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_a.setBounds(0, 173, 45, 20);
+
+        stats_values_hp_a.setText("" + stat_array[0][1]);
+        stats_values_hp_a.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_hp_a.setVerticalAlignment(JLabel.CENTER);
+        stats_values_hp_a.setForeground(Color.white);
+        stats_values_hp_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_a.setBounds(47, 111, 29, 20);
+
+        stats_values_xp_a.setText("" + stat_array[0][2]);
+        stats_values_xp_a.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_xp_a.setVerticalAlignment(JLabel.CENTER);
+        stats_values_xp_a.setForeground(Color.white);
+        stats_values_xp_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_a.setBounds(47, 142, 29, 20);
+
+        stats_values_lvl_a.setText("" + stat_array[0][3]);
+        stats_values_lvl_a.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_lvl_a.setVerticalAlignment(JLabel.CENTER);
+        stats_values_lvl_a.setForeground(Color.white);
+        stats_values_lvl_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_a.setBounds(47, 173, 29, 20);
+
+        JLabel stats_name_b = new JLabel();
+        stats_name_b.setText("HP:");
+        stats_name_b.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_b.setVerticalAlignment(JLabel.CENTER);
+        stats_name_b.setForeground(Color.white);
+        stats_name_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_b.setBounds(0, 111, 36, 20);
+
+        JLabel stats_name_2_b = new JLabel();
+        stats_name_2_b.setText("XP:");
+        stats_name_2_b.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_2_b.setVerticalAlignment(JLabel.CENTER);
+        stats_name_2_b.setForeground(Color.white);
+        stats_name_2_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_b.setBounds(0, 142, 34, 20);
+
+        JLabel stats_name_3_b = new JLabel();
+        stats_name_3_b.setText("LVL:");
+        stats_name_3_b.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_3_b.setVerticalAlignment(JLabel.CENTER);
+        stats_name_3_b.setForeground(Color.white);
+        stats_name_3_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_b.setBounds(0, 173, 45, 20);
+
+        stats_values_hp_b.setText("" + stat_array[1][1]);
+        stats_values_hp_b.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_hp_b.setVerticalAlignment(JLabel.CENTER);
+        stats_values_hp_b.setForeground(Color.white);
+        stats_values_hp_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_b.setBounds(47, 111, 29, 20);
+
+        stats_values_xp_b.setText("" + stat_array[1][2]);
+        stats_values_xp_b.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_xp_b.setVerticalAlignment(JLabel.CENTER);
+        stats_values_xp_b.setForeground(Color.white);
+        stats_values_xp_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_b.setBounds(47, 142, 29, 20);
+
+        stats_values_lvl_b.setText("" + stat_array[2][3]);
+        stats_values_lvl_b.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_lvl_b.setVerticalAlignment(JLabel.CENTER);
+        stats_values_lvl_b.setForeground(Color.white);
+        stats_values_lvl_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_b.setBounds(47, 173, 29, 20);
+
+        JLabel stats_name_c = new JLabel();
+        stats_name_c.setText("HP:");
+        stats_name_c.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_c.setVerticalAlignment(JLabel.CENTER);
+        stats_name_c.setForeground(Color.white);
+        stats_name_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_c.setBounds(0, 111, 36, 20);
+
+        JLabel stats_name_2_c = new JLabel();
+        stats_name_2_c.setText("XP:");
+        stats_name_2_c.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_2_c.setVerticalAlignment(JLabel.CENTER);
+        stats_name_2_c.setForeground(Color.white);
+        stats_name_2_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_c.setBounds(0, 142, 34, 20);
+
+        JLabel stats_name_3_c = new JLabel();
+        stats_name_3_c.setText("LVL:");
+        stats_name_3_c.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_3_c.setVerticalAlignment(JLabel.CENTER);
+        stats_name_3_c.setForeground(Color.white);
+        stats_name_3_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_c.setBounds(0, 173, 45, 20);
+
+        stats_values_hp_c.setText("" + stat_array[2][1]);
+        stats_values_hp_c.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_hp_c.setVerticalAlignment(JLabel.CENTER);
+        stats_values_hp_c.setForeground(Color.white);
+        stats_values_hp_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_c.setBounds(47, 111, 29, 20);
+
+        stats_values_xp_c.setText("" + stat_array[2][2]);
+        stats_values_xp_c.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_xp_c.setVerticalAlignment(JLabel.CENTER);
+        stats_values_xp_c.setForeground(Color.white);
+        stats_values_xp_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_c.setBounds(47, 142, 29, 20);
+
+        stats_values_lvl_c.setText("" + stat_array[2][3]);
+        stats_values_lvl_c.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_lvl_c.setVerticalAlignment(JLabel.CENTER);
+        stats_values_lvl_c.setForeground(Color.white);
+        stats_values_lvl_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_c.setBounds(47, 173, 29, 20);
+
+        JLabel stats_name_d = new JLabel();
+        stats_name_d.setText("HP:");
+        stats_name_d.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_d.setVerticalAlignment(JLabel.CENTER);
+        stats_name_d.setForeground(Color.white);
+        stats_name_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_d.setBounds(0, 111, 36, 20);
+
+        JLabel stats_name_2_d = new JLabel();
+        stats_name_2_d.setText("XP:");
+        stats_name_2_d.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_2_d.setVerticalAlignment(JLabel.CENTER);
+        stats_name_2_d.setForeground(Color.white);
+        stats_name_2_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_d.setBounds(0, 142, 34, 20);
+
+        JLabel stats_name_3_d = new JLabel();
+        stats_name_3_d.setText("LVL:");
+        stats_name_3_d.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_3_d.setVerticalAlignment(JLabel.CENTER);
+        stats_name_3_d.setForeground(Color.white);
+        stats_name_3_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_d.setBounds(0, 173, 45, 20);
+
+        stats_values_hp_d.setText("" + stat_array[3][1]);
+        stats_values_hp_d.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_hp_d.setVerticalAlignment(JLabel.CENTER);
+        stats_values_hp_d.setForeground(Color.white);
+        stats_values_hp_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_d.setBounds(47, 111, 29, 20);
+
+        stats_values_xp_d.setText("" + stat_array[3][2]);
+        stats_values_xp_d.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_xp_d.setVerticalAlignment(JLabel.CENTER);
+        stats_values_xp_d.setForeground(Color.white);
+        stats_values_xp_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_d.setBounds(47, 142, 29, 20);
+
+        stats_values_lvl_d.setText("" + stat_array[3][3]);
+        stats_values_lvl_d.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_lvl_d.setVerticalAlignment(JLabel.CENTER);
+        stats_values_lvl_d.setForeground(Color.white);
+        stats_values_lvl_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_d.setBounds(47, 173, 29, 20);
+
+        JLabel stats_name_e = new JLabel();
+        stats_name_e.setText("HP:");
+        stats_name_e.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_e.setVerticalAlignment(JLabel.CENTER);
+        stats_name_e.setForeground(Color.white);
+        stats_name_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_e.setBounds(0, 111, 36, 20);
+
+        JLabel stats_name_2_e = new JLabel();
+        stats_name_2_e.setText("XP:");
+        stats_name_2_e.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_2_e.setVerticalAlignment(JLabel.CENTER);
+        stats_name_2_e.setForeground(Color.white);
+        stats_name_2_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_e.setBounds(0, 142, 34, 20);
+
+        JLabel stats_name_3_e = new JLabel();
+        stats_name_3_e.setText("LVL:");
+        stats_name_3_e.setHorizontalAlignment(JLabel.LEFT);
+        stats_name_3_e.setVerticalAlignment(JLabel.CENTER);
+        stats_name_3_e.setForeground(Color.white);
+        stats_name_3_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_e.setBounds(0, 173, 45, 20);
+        stats_values_hp_e.setText("" + stat_array[4][1]);
+        stats_values_hp_e.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_hp_e.setVerticalAlignment(JLabel.CENTER);
+        stats_values_hp_e.setForeground(Color.white);
+        stats_values_hp_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_e.setBounds(47, 111, 29, 20);
+
+        stats_values_xp_e.setText("" + stat_array[4][2]);
+        stats_values_xp_e.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_xp_e.setVerticalAlignment(JLabel.CENTER);
+        stats_values_xp_e.setForeground(Color.white);
+        stats_values_xp_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_e.setBounds(47, 142, 29, 20);
+
+        stats_values_lvl_e.setText("" + stat_array[4][3]);
+        stats_values_lvl_e.setHorizontalAlignment(JLabel.CENTER);
+        stats_values_lvl_e.setVerticalAlignment(JLabel.CENTER);
+        stats_values_lvl_e.setForeground(Color.white);
+        stats_values_lvl_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_e.setBounds(47, 173, 29, 20);
+
+        but1 = new JButton();
+        but1.setBounds(0, 0, 100, 100);
+        but1.addActionListener(this);
+        but1.setFocusable(false);
+        // but1.setIcon(); burası biraz ayarlanması lazım
+
+        but2 = new JButton();
+        but2.setBounds(0, 0, 100, 100);
+        but2.addActionListener(this);
+        but2.setFocusable(false);
+        // but1.setIcon(); burası biraz ayarlanması lazım
+
+        but3 = new JButton();
+        but3.setBounds(0, 0, 100, 100);
+        but3.addActionListener(this);
+        but3.setFocusable(false);
+        // but1.setIcon(); burası biraz ayarlanması lazım
+
+        but4 = new JButton();
+        but4.setBounds(0, 0, 100, 100);
+        but4.addActionListener(this);
+        but4.setFocusable(false);
+        // but1.setIcon(); burası biraz ayarlanması lazım
+
+        but5 = new JButton();
+        but5.setBounds(0, 0, 100, 100);
+        but5.addActionListener(this);
+        but5.setFocusable(false);
+        // but1.setIcon(); burası biraz ayarlanması lazım
+
+        but_array[0] = but1;
+        but_array[1] = but2;
+        but_array[2] = but3;
+        but_array[3] = but4;
+        but_array[4] = but5;
+
+        for (int i = 0; i < 5; i++) {
+            if (transport[i] == "stone") {
+                but_array[i].setIcon(stone_button);
+            }
+
+            if (transport[i] == "scissors") {
+                but_array[i].setIcon(scissors_button);
+            }
+
+            if (transport[i] == "paper") {
+                but_array[i].setIcon(paper_button);
+            }
+        }
+        slot_1 = new JPanel();
+        slot_1.setBounds(89, 504, 100, 193);
+        slot_1.setBackground(Color.black);
+        slot_1.setLayout(null);
+        slot_1.add(but1);
+        slot_1.add(stats_name_a);
+        slot_1.add(stats_name_2_a);
+        slot_1.add(stats_name_3_a);
+        slot_1.add(stats_values_hp_a);
+        slot_1.add(stats_values_xp_a);
+        slot_1.add(stats_values_lvl_a);
+
+        slot_2 = new JPanel();
+        slot_2.setBounds(219, 504, 100, 193);
+        slot_2.setBackground(Color.black);
+        slot_2.setLayout(null);
+        slot_2.add(but2);
+        slot_2.add(stats_name_b);
+        slot_2.add(stats_name_2_b);
+        slot_2.add(stats_name_3_b);
+        slot_2.add(stats_values_hp_b);
+        slot_2.add(stats_values_xp_b);
+        slot_2.add(stats_values_lvl_b);
+
+        slot_3 = new JPanel();
+        slot_3.setBounds(350, 504, 100, 193);
+        slot_3.setBackground(Color.black);
+        slot_3.setLayout(null);
+        slot_3.add(but3);
+        slot_3.add(stats_name_c);
+        slot_3.add(stats_name_2_c);
+        slot_3.add(stats_name_3_c);
+        slot_3.add(stats_values_hp_c);
+        slot_3.add(stats_values_xp_c);
+        slot_3.add(stats_values_lvl_c);
+
+        slot_4 = new JPanel();
+        slot_4.setBounds(478, 504, 100, 193);
+        slot_4.setBackground(Color.black);
+        slot_4.setLayout(null);
+        slot_4.add(but4);
+        slot_4.add(stats_name_d);
+        slot_4.add(stats_name_2_d);
+        slot_4.add(stats_name_3_d);
+        slot_4.add(stats_values_hp_d);
+        slot_4.add(stats_values_xp_d);
+        slot_4.add(stats_values_lvl_d);
+
+        slot_5 = new JPanel();
+        slot_5.setBounds(612, 504, 100, 193);
+        slot_5.setBackground(Color.black);
+        slot_5.setLayout(null);
+        slot_5.add(but5);
+        slot_5.add(stats_name_e);
+        slot_5.add(stats_name_2_e);
+        slot_5.add(stats_name_3_e);
+        slot_5.add(stats_values_hp_e);
+        slot_5.add(stats_values_xp_e);
+        slot_5.add(stats_values_lvl_e);
+
+        panel_Array[0] = slot_1;
+        panel_Array[1] = slot_2;
+        panel_Array[2] = slot_3;
+        panel_Array[3] = slot_4;
+        panel_Array[4] = slot_5;
+
+        JLabel pc_interface_title = new JLabel();
+        pc_interface_title.setText("PC");
+        pc_interface_title.setHorizontalAlignment(JLabel.CENTER);
+        pc_interface_title.setVerticalAlignment(JLabel.CENTER);
+        pc_interface_title.setForeground(Color.white);
+        pc_interface_title.setFont(new Font("Aldrich", Font.PLAIN, 64));
+        pc_interface_title.setBounds(0, 0, 92, 63);
+
+        JLabel pc_interface_item_name = new JLabel();
+        pc_interface_item_name.setText("ITEM");
+        pc_interface_item_name.setHorizontalAlignment(JLabel.CENTER);
+        pc_interface_item_name.setVerticalAlignment(JLabel.CENTER);
+        pc_interface_item_name.setForeground(Color.white);
+        pc_interface_item_name.setFont(new Font("Aldrich", Font.PLAIN, 30));
+        pc_interface_item_name.setBounds(12, 207, 75, 29);
+
+        JLabel user_interface_title = new JLabel();
+        user_interface_title.setText("USER");
+        user_interface_title.setHorizontalAlignment(JLabel.CENTER);
+        user_interface_title.setVerticalAlignment(JLabel.CENTER);
+        user_interface_title.setForeground(Color.white);
+        user_interface_title.setFont(new Font("Aldrich", Font.PLAIN, 64));
+        user_interface_title.setBounds(0, 0, 185, 63);
+
+        JLabel user_interface_item_name = new JLabel();
+        user_interface_item_name.setText("ITEM");
+        user_interface_item_name.setHorizontalAlignment(JLabel.CENTER);
+        user_interface_item_name.setVerticalAlignment(JLabel.CENTER);
+        user_interface_item_name.setForeground(Color.white);
+        user_interface_item_name.setFont(new Font("Aldrich", Font.PLAIN, 30));
+        user_interface_item_name.setBounds(54, 210, 75, 29);
+
+        JLabel round_interface_title = new JLabel();
+        round_interface_title.setText("ROUND:");
+        round_interface_title.setHorizontalAlignment(JLabel.CENTER);
+        round_interface_title.setVerticalAlignment(JLabel.CENTER);
+        round_interface_title.setForeground(Color.white);
+        round_interface_title.setFont(new Font("Aldrich", Font.PLAIN, 40));
+        round_interface_title.setBounds(0, 0, 179, 39);
+
+        round_interface_count = new JLabel();
+        round_interface_count.setText("0");
+        round_interface_count.setHorizontalAlignment(JLabel.CENTER);
+        round_interface_count.setVerticalAlignment(JLabel.CENTER);
+        round_interface_count.setForeground(Color.white);
+        round_interface_count.setFont(new Font("Aldrich", Font.PLAIN, 40));
+        round_interface_count.setBounds(180, 0, 60, 45);
+
+        JLabel damage_interface_taken_name = new JLabel();
+        damage_interface_taken_name.setText("ALINAN HASAR:");
+        damage_interface_taken_name.setHorizontalAlignment(JLabel.CENTER);
+        damage_interface_taken_name.setVerticalAlignment(JLabel.CENTER);
+        damage_interface_taken_name.setForeground(Color.white);
+        damage_interface_taken_name.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_taken_name.setBounds(0, 0, 185, 20);
+
+        JLabel damage_interface_taken_value = new JLabel();
+        damage_interface_taken_value.setText("20");
+        damage_interface_taken_value.setHorizontalAlignment(JLabel.CENTER);
+        damage_interface_taken_value.setVerticalAlignment(JLabel.CENTER);
+        damage_interface_taken_value.setForeground(Color.white);
+        damage_interface_taken_value.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_taken_value.setBounds(196, 0, 30, 20);
+
+        JLabel damage_interface_given_name = new JLabel();
+        damage_interface_given_name.setText("VERILEN HASAR:");
+        damage_interface_given_name.setHorizontalAlignment(JLabel.CENTER);
+        damage_interface_given_name.setVerticalAlignment(JLabel.CENTER);
+        damage_interface_given_name.setForeground(Color.white);
+        damage_interface_given_name.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_given_name.setBounds(0, 45, 185, 20);
+
+        JLabel damage_interface_given_value = new JLabel();
+        damage_interface_given_value.setText("20");
+        damage_interface_given_value.setHorizontalAlignment(JLabel.CENTER);
+        damage_interface_given_value.setVerticalAlignment(JLabel.CENTER);
+        damage_interface_given_value.setForeground(Color.white);
+        damage_interface_given_value.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_given_value.setBounds(196, 45, 30, 20);
+
+        pc_interface = new JPanel();
+        pc_interface.setBounds(133, 209, 100, 236);
+        pc_interface.setBackground(Color.black);
+        pc_interface.setLayout(null);
+        pc_interface.add(pc_interface_item_name);
+        pc_interface.add(pc_interface_title);
+
+        user_interface = new JPanel();
+        user_interface.setBounds(515, 212, 185, 239);
+        user_interface.setBackground(Color.black);
+        user_interface.setLayout(null);
+        user_interface.add(user_interface_title);
+        user_interface.add(user_interface_item_name);
+
+        damage_interface = new JPanel();
+        damage_interface.setBounds(260, 318, 260, 80);
+        damage_interface.setBackground(Color.black);
+        damage_interface.setLayout(null);
+        damage_interface.add(damage_interface_given_value);
+        damage_interface.add(damage_interface_taken_value);
+        damage_interface.add(damage_interface_taken_name);
+        damage_interface.add(damage_interface_given_name);
+
+        round_interface = new JPanel();
+        round_interface.setBounds(279, 134, 243, 39);
+        round_interface.setBackground(Color.black);
+        round_interface.setLayout(null);
+        round_interface.add(round_interface_title);
+        round_interface.add(round_interface_count);
+
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.getContentPane().setBackground(new Color(0, 0, 0));
+        this.setSize(800, 800);
+        this.setLayout(null);
+
+        this.add(title);
+        this.add(slot_1);
+        this.add(slot_2);
+        this.add(slot_3);
+        this.add(slot_4);
+        this.add(slot_5);
+        this.add(pc_interface);
+        this.add(user_interface);
+        this.add(round_interface);
+        this.add(damage_interface);
+        this.setVisible(true);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        if (e.getSource() == but1) {
+            int x = random.nextInt(5);
+            System.out.println("" + computer_array[x][0]);
+            if (computer_array[x][0] == "stone" && stat_array[0][0] == "scissors") {
+                pc_interface.add(stone_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[0][0] == "stone") {
+                user_interface.add(stone_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[0][0] == "paper") {
+                user_interface.add(stone_logo);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[0][0] == "stone") {
+                pc_interface.add(stone_logo);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[0][0] == "scissors") {
+                user_interface.add(paper_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[0][0] == "paper") {
+                pc_interface.add(paper_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[0][0] == "scissors") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[0][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[0][0] == "paper") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[0][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[0][0] == "scissors") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[0][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[0][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+
+            if (computer_array[x][0] == "scissors2" && stat_array[0][0] == "stone") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+
+            if (computer_array[x][0] == "stone" && stat_array[0][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[0][0] == "stone") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[0][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors2" && stat_array[0][0] == "paper") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[0][1] = "" + (Double.parseDouble(stat_array[0][1]) - 0.4);
+            }
+            if (Double.parseDouble(stat_array[0][1]) <= 0.0) {
+                computer_array[x][2] = "" + Double.parseDouble(computer_array[x][2]) + 20;
+                but1.setEnabled(false);
+            }
+            if (Double.parseDouble(computer_array[x][1]) <= 0.0) {
+                stat_array[0][2] = "" + Double.parseDouble(stat_array[0][2]) + 20;
+            }
+            if (Double.parseDouble(stat_array[0][2]) >= 30) {
+                stats_values_lvl_a.setText("" + 2);
+                if (stat_array[0][0] == "stone") {
+                    stat_array[0][0] = "stone2";
+                }
+                if (stat_array[0][0] == "paper") {
+                    stat_array[0][0] = "paper2";
+                }
+                if (stat_array[0][0] == "scissors") {
+                    stat_array[0][0] = "scissors2";
+                }
+            }
+            if (Double.parseDouble(computer_array[x][2]) >= 30) {
+                if (computer_array[x][0] == "stone") {
+                    computer_array[x][0] = "stone2";
+                }
+                if (computer_array[x][0] == "paper") {
+                    computer_array[x][0] = "paper2";
+                }
+                if (computer_array[x][0] == "scissors") {
+                    computer_array[x][0] = "scissors2";
+                }
+            }
+
+            stats_values_hp_a.setText("" + stat_array[0][1]);
+            stats_values_xp_a.setText("" + stat_array[0][2]);
+            panel_Array[0].add(stats_values_hp_a);
+            panel_Array[0].add(stats_values_xp_a);
+            panel_Array[0].add(stats_values_lvl_a);
+
+            round_interface_count.setText("" + roundcount);
+            roundcount++;
+            if (roundcount == 12) {
+
+                this.setVisible(false);
+                game_Frame_4 game_Frame_4 = new game_Frame_4();
+            }
+        }
+        if (e.getSource() == but2) {
+
+            int x = random.nextInt(5);
+            System.out.println("" + computer_array[x][0]);
+            if (computer_array[x][0] == "stone" && stat_array[1][0] == "scissors") {
+                pc_interface.add(stone_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[1][0] == "stone") {
+                user_interface.add(stone_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[1][0] == "paper") {
+                user_interface.add(stone_logo);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[1][0] == "stone") {
+                pc_interface.add(stone_logo);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[1][0] == "scissors") {
+                user_interface.add(paper_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[1][0] == "paper") {
+                pc_interface.add(paper_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[1][0] == "scissors") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[1][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[1][0] == "paper") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[1][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[1][0] == "scissors") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[1][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[1][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+
+            if (computer_array[x][0] == "scissors2" && stat_array[1][0] == "stone") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+
+            if (computer_array[x][0] == "stone" && stat_array[1][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[1][0] == "stone") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[1][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors2" && stat_array[1][0] == "paper") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[1][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (Double.parseDouble(stat_array[1][1]) <= 0.0) {
+                computer_array[x][2] = "" + Double.parseDouble(computer_array[x][2]) + 20;
+                but2.setEnabled(false);
+            }
+            if (Double.parseDouble(computer_array[x][1]) <= 0.0) {
+                stat_array[1][2] = "" + Double.parseDouble(stat_array[1][2]) + 20;
+            }
+            if (Double.parseDouble(stat_array[1][2]) >= 30) {
+                stats_values_lvl_b.setText("" + 2);
+                if (stat_array[1][0] == "stone") {
+                    stat_array[1][0] = "stone2";
+                }
+                if (stat_array[1][0] == "paper") {
+                    stat_array[1][0] = "paper2";
+                }
+                if (stat_array[1][0] == "scissors") {
+                    stat_array[1][0] = "scissors2";
+                }
+            }
+            if (Double.parseDouble(computer_array[x][2]) >= 30) {
+                if (computer_array[x][0] == "stone") {
+                    computer_array[x][0] = "stone2";
+                }
+                if (computer_array[x][0] == "paper") {
+                    computer_array[x][0] = "paper2";
+                }
+                if (computer_array[x][0] == "scissors") {
+                    computer_array[x][0] = "scissors2";
+                }
+            }
+
+            stats_values_hp_a.setText("" + stat_array[1][1]);
+            stats_values_xp_a.setText("" + stat_array[1][2]);
+            panel_Array[1].add(stats_values_hp_b);
+            panel_Array[1].add(stats_values_xp_b);
+            panel_Array[1].add(stats_values_lvl_b);
+
+            round_interface_count.setText("" + roundcount);
+            roundcount++;
+            if (roundcount == 12) {
+                this.setVisible(false);
+                game_Frame_4 game_Frame_4 = new game_Frame_4();
+            }
+        }
+        if (e.getSource() == but3) {
+
+            int x = random.nextInt(5);
+            System.out.println("" + computer_array[x][0]);
+            if (computer_array[x][0] == "stone" && stat_array[2][0] == "scissors") {
+                pc_interface.add(stone_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[2][0] == "stone") {
+                user_interface.add(stone_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[2][0] == "paper") {
+                user_interface.add(stone_logo);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[2][0] == "stone") {
+                pc_interface.add(stone_logo);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[2][0] == "scissors") {
+                user_interface.add(paper_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[2][0] == "paper") {
+                pc_interface.add(paper_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[2][0] == "scissors") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[2][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[2][0] == "paper") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[2][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[2][0] == "scissors") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[2][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[2][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+
+            if (computer_array[x][0] == "scissors2" && stat_array[2][0] == "stone") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+
+            if (computer_array[x][0] == "stone" && stat_array[2][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[2][0] == "stone") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[2][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors2" && stat_array[2][0] == "paper") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[2][1] = "" + (Double.parseDouble(stat_array[2][1]) - 0.4);
+            }
+            if (Double.parseDouble(stat_array[2][1]) <= 0.0) {
+                computer_array[x][2] = "" + Double.parseDouble(computer_array[x][2]) + 20;
+                but3.setEnabled(false);
+            }
+            if (Double.parseDouble(computer_array[x][1]) <= 0.0) {
+                stat_array[2][2] = "" + Double.parseDouble(stat_array[2][2]) + 20;
+            }
+            if (Double.parseDouble(stat_array[2][2]) >= 30) {
+                stats_values_lvl_c.setText("" + 2);
+                if (stat_array[2][0] == "stone") {
+                    stat_array[2][0] = "stone2";
+                }
+                if (stat_array[2][0] == "paper") {
+                    stat_array[2][0] = "paper2";
+                }
+                if (stat_array[2][0] == "scissors") {
+                    stat_array[2][0] = "scissors2";
+                }
+            }
+            if (Double.parseDouble(computer_array[x][2]) >= 30) {
+                if (computer_array[x][0] == "stone") {
+                    computer_array[x][0] = "stone2";
+                }
+                if (computer_array[x][0] == "paper") {
+                    computer_array[x][0] = "paper2";
+                }
+                if (computer_array[x][0] == "scissors") {
+                    computer_array[x][0] = "scissors2";
+                }
+            }
+
+            stats_values_hp_a.setText("" + stat_array[2][1]);
+            stats_values_xp_a.setText("" + stat_array[2][2]);
+            panel_Array[2].add(stats_values_hp_c);
+            panel_Array[2].add(stats_values_xp_c);
+            panel_Array[2].add(stats_values_lvl_c);
+
+            round_interface_count.setText("" + roundcount);
+            roundcount++;
+            if (roundcount == 12) {
+                this.setVisible(false);
+                game_Frame_4 game_Frame_4 = new game_Frame_4();
+            }
+        }
+        if (e.getSource() == but4) {
+
+            int x = random.nextInt(5);
+            System.out.println("" + computer_array[x][0]);
+          if (computer_array[x][0] == "stone" && stat_array[3][0] == "scissors") {
+                pc_interface.add(stone_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[3][0] == "stone") {
+                user_interface.add(stone_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[3][0] == "paper") {
+                user_interface.add(stone_logo);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[3][0] == "stone") {
+                pc_interface.add(stone_logo);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[3][0] == "scissors") {
+                user_interface.add(paper_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[3][0] == "paper") {
+                pc_interface.add(paper_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[3][0] == "scissors") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[3][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[3][0] == "paper") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[3][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[3][0] == "scissors") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[3][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[3][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+
+            if (computer_array[x][0] == "scissors2" && stat_array[3][0] == "stone") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+
+            if (computer_array[x][0] == "stone" && stat_array[3][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[3][0] == "stone") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[3][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors2" && stat_array[3][0] == "paper") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[3][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (Double.parseDouble(stat_array[3][1]) <= 0.0) {
+                computer_array[x][2] = "" + Double.parseDouble(computer_array[x][2]) + 20;
+                but4.setEnabled(false);
+            }
+            if (Double.parseDouble(computer_array[x][1]) <= 0.0) {
+                stat_array[3][2] = "" + Double.parseDouble(stat_array[4][2]) + 20;
+            }
+            if (Double.parseDouble(stat_array[3][2]) >= 30) {
+                stats_values_lvl_d.setText("" + 2);
+                if (stat_array[3][0] == "stone") {
+                    stat_array[3][0] = "stone2";
+                }
+                if (stat_array[3][0] == "paper") {
+                    stat_array[3][0] = "paper2";
+                }
+                if (stat_array[3][0] == "scissors") {
+                    stat_array[3][0] = "scissors2";
+                }
+            }
+            if (Double.parseDouble(computer_array[x][2]) >= 30) {
+                if (computer_array[x][0] == "stone") {
+                    computer_array[x][0] = "stone2";
+                }
+                if (computer_array[x][0] == "paper") {
+                    computer_array[x][0] = "paper2";
+                }
+                if (computer_array[x][0] == "scissors") {
+                    computer_array[x][0] = "scissors2";
+                }
+            }
+            stats_values_hp_a.setText("" + stat_array[3][1]);
+            stats_values_xp_a.setText("" + stat_array[3][2]);
+            panel_Array[3].add(stats_values_hp_d);
+            panel_Array[3].add(stats_values_xp_d);
+            panel_Array[3].add(stats_values_lvl_d);
+
+            round_interface_count.setText("" + roundcount);
+            roundcount++;
+            if (roundcount == 12) {
+                this.setVisible(false);
+                game_Frame_4 game_Frame_4 = new game_Frame_4();
+            }
+        }
+        if (e.getSource() == but5) {
+            int x = random.nextInt(5);
+            System.out.println("" + computer_array[x][0]);
+            if (computer_array[x][0] == "stone" && stat_array[4][0] == "scissors") {
+                pc_interface.add(stone_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[4][0] == "stone") {
+                user_interface.add(stone_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[4][0] == "paper") {
+                user_interface.add(stone_logo);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[4][0] == "stone") {
+                pc_interface.add(stone_logo);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[4][0] == "scissors") {
+                user_interface.add(paper_logo);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 1.6);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[4][0] == "paper") {
+                pc_interface.add(paper_logo);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 1.6);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[4][0] == "scissors") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[4][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "stone2" && stat_array[4][0] == "paper") {
+                pc_interface.add(stone_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[4][0] == "stone2") {
+                user_interface.add(stone_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[4][0] == "scissors") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors" && stat_array[4][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(scissors_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "stone" && stat_array[4][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+
+            if (computer_array[x][0] == "scissors2" && stat_array[4][0] == "stone") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+
+            if (computer_array[x][0] == "stone" && stat_array[4][0] == "paper2") {
+                user_interface.add(paper_logo2);
+                pc_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (computer_array[x][0] == "paper2" && stat_array[4][0] == "stone") {
+                pc_interface.add(paper_logo2);
+                user_interface.add(stone_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "paper" && stat_array[4][0] == "scissors2") {
+                user_interface.add(scissors_logo2);
+                pc_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 0.4);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 3.2);
+            }
+            if (computer_array[x][0] == "scissors2" && stat_array[4][0] == "paper") {
+                pc_interface.add(scissors_logo2);
+                user_interface.add(paper_logo);
+                computer_array[x][1] = "" + (Double.parseDouble(computer_array[x][1]) - 3.2);
+                stat_array[4][1] = "" + (Double.parseDouble(stat_array[1][1]) - 0.4);
+            }
+            if (Double.parseDouble(stat_array[4][1]) <= 0.0) {
+                computer_array[x][1]= "" + Double.parseDouble(computer_array[x][2]) + 20;
+                but5.setEnabled(false);
+            }
+            if (Double.parseDouble(computer_array[x][1]) <= 0.0) {
+                stat_array[4][2] = "" + Double.parseDouble(stat_array[4][2]) + 20;
+            }
+            if (Double.parseDouble(stat_array[4][2]) >= 30) {
+                stats_values_lvl_e.setText("" + 2);
+                if (stat_array[4][0] == "stone") {
+                    stat_array[4][0] = "stone2";
+                }
+                if (stat_array[4][0] == "paper") {
+                    stat_array[4][0] = "paper2";
+                }
+                if (stat_array[4][0] == "scissors") {
+                    stat_array[4][0] = "scissors2";
+                }
+            }
+            if (Double.parseDouble(computer_array[x][2]) >= 30) {
+                if (computer_array[x][0] == "stone") {
+                    computer_array[x][0] = "stone2";
+                }
+                if (computer_array[x][0] == "paper") {
+                    computer_array[x][0] = "paper2";
+                }
+                if (computer_array[x][0] == "scissors") {
+                    computer_array[x][0] = "scissors2";
+                }
+            }
+
+            stats_values_hp_a.setText("" + stat_array[4][1]);
+            stats_values_xp_a.setText("" + stat_array[4][2]);
+            panel_Array[4].add(stats_values_hp_e);
+            panel_Array[4].add(stats_values_xp_e);
+            panel_Array[4].add(stats_values_lvl_e);
+
+            round_interface_count.setText("" + roundcount);
+            roundcount++;
+            if (roundcount == 12) {
+                this.setVisible(false);
+                game_Frame_4 game_Frame_4 = new game_Frame_4();
+            }
+        }
+    }
+
+    // @Override
+    // public void actionPerformed(ActionEvent e) {
+    // if (e.getSource() == butongoeshere) {
+
+    // }
+    // }
+// 
+}
