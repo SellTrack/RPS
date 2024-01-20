@@ -197,7 +197,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         player_Name.setHorizontalAlignment(JLabel.CENTER);
         player_Name.setVerticalAlignment(JLabel.CENTER);
         player_Name.setForeground(Color.white);
-        player_Name.setFont(new Font("Aldrich", Font.PLAIN, 64));
+        player_Name.setFont(new Font("Aldrich", Font.PLAIN,36));
         player_Name.setBounds(25, 42, 212, 63);
 
         JLabel title = new JLabel(); // başlığımız
@@ -214,7 +214,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_a.setHorizontalAlignment(JLabel.LEFT);
         stats_name_a.setVerticalAlignment(JLabel.CENTER);
         stats_name_a.setForeground(Color.white);
-        stats_name_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_a.setBounds(0, 111, 36, 20);
 
         JLabel stats_name_2_a = new JLabel(); // görsellik çalışması
@@ -222,7 +222,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_2_a.setHorizontalAlignment(JLabel.LEFT);
         stats_name_2_a.setVerticalAlignment(JLabel.CENTER);
         stats_name_2_a.setForeground(Color.white);
-        stats_name_2_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_2_a.setBounds(0, 142, 34, 20);
 
         JLabel stats_name_3_a = new JLabel(); // görsellik çalışması
@@ -230,28 +230,28 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_3_a.setHorizontalAlignment(JLabel.LEFT);
         stats_name_3_a.setVerticalAlignment(JLabel.CENTER);
         stats_name_3_a.setForeground(Color.white);
-        stats_name_3_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_3_a.setBounds(0, 173, 45, 20);
 
         stats_values_hp_a.setText("20.0"); // görsellik çalışması
         stats_values_hp_a.setHorizontalAlignment(JLabel.CENTER);
         stats_values_hp_a.setVerticalAlignment(JLabel.CENTER);
         stats_values_hp_a.setForeground(Color.white);
-        stats_values_hp_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_hp_a.setBounds(47, 111, 53, 25);
 
         stats_values_xp_a.setText("0.0"); // görsellik çalışması
         stats_values_xp_a.setHorizontalAlignment(JLabel.CENTER);
         stats_values_xp_a.setVerticalAlignment(JLabel.CENTER);
         stats_values_xp_a.setForeground(Color.white);
-        stats_values_xp_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_xp_a.setBounds(47, 139, 53, 25);
 
         stats_values_lvl_a.setText("1"); // görsellik çalışması
         stats_values_lvl_a.setHorizontalAlignment(JLabel.CENTER);
         stats_values_lvl_a.setVerticalAlignment(JLabel.CENTER);
         stats_values_lvl_a.setForeground(Color.white);
-        stats_values_lvl_a.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_a.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_lvl_a.setBounds(47, 170, 53, 25);
 
         JLabel stats_name_b = new JLabel(); // görsellik çalışması
@@ -259,7 +259,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_b.setHorizontalAlignment(JLabel.LEFT);
         stats_name_b.setVerticalAlignment(JLabel.CENTER);
         stats_name_b.setForeground(Color.white);
-        stats_name_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_b.setBounds(0, 111, 36, 20);
 
         JLabel stats_name_2_b = new JLabel(); // görsellik çalışması
@@ -267,7 +267,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_2_b.setHorizontalAlignment(JLabel.LEFT);
         stats_name_2_b.setVerticalAlignment(JLabel.CENTER);
         stats_name_2_b.setForeground(Color.white);
-        stats_name_2_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_2_b.setBounds(0, 142, 34, 20);
 
         JLabel stats_name_3_b = new JLabel(); // görsellik çalışması
@@ -275,28 +275,28 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_3_b.setHorizontalAlignment(JLabel.LEFT);
         stats_name_3_b.setVerticalAlignment(JLabel.CENTER);
         stats_name_3_b.setForeground(Color.white);
-        stats_name_3_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_3_b.setBounds(0, 173, 45, 20);
 
         stats_values_hp_b.setText("20.0"); // görsellik çalışması
         stats_values_hp_b.setHorizontalAlignment(JLabel.CENTER);
         stats_values_hp_b.setVerticalAlignment(JLabel.CENTER);
         stats_values_hp_b.setForeground(Color.white);
-        stats_values_hp_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_hp_b.setBounds(47, 106, 53, 25);
 
         stats_values_xp_b.setText("0.0"); // görsellik çalışması
         stats_values_xp_b.setHorizontalAlignment(JLabel.CENTER);
         stats_values_xp_b.setVerticalAlignment(JLabel.CENTER);
         stats_values_xp_b.setForeground(Color.white);
-        stats_values_xp_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_xp_b.setBounds(47, 137, 53, 25);
 
         stats_values_lvl_b.setText("1.0"); // görsellik çalışması
         stats_values_lvl_b.setHorizontalAlignment(JLabel.CENTER);
         stats_values_lvl_b.setVerticalAlignment(JLabel.CENTER);
         stats_values_lvl_b.setForeground(Color.white);
-        stats_values_lvl_b.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_b.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_lvl_b.setBounds(47, 168, 53, 25);
 
         JLabel stats_name_c = new JLabel(); // görsellik çalışması
@@ -304,7 +304,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_c.setHorizontalAlignment(JLabel.LEFT);
         stats_name_c.setVerticalAlignment(JLabel.CENTER);
         stats_name_c.setForeground(Color.white);
-        stats_name_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_c.setBounds(0, 111, 36, 20);
 
         JLabel stats_name_2_c = new JLabel(); // görsellik çalışması
@@ -312,7 +312,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_2_c.setHorizontalAlignment(JLabel.LEFT);
         stats_name_2_c.setVerticalAlignment(JLabel.CENTER);
         stats_name_2_c.setForeground(Color.white);
-        stats_name_2_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_2_c.setBounds(0, 142, 34, 20);
 
         JLabel stats_name_3_c = new JLabel(); // görsellik çalışması
@@ -320,28 +320,28 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_3_c.setHorizontalAlignment(JLabel.LEFT);
         stats_name_3_c.setVerticalAlignment(JLabel.CENTER);
         stats_name_3_c.setForeground(Color.white);
-        stats_name_3_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_3_c.setBounds(0, 173, 45, 20);
 
         stats_values_hp_c.setText("20.0"); // görsellik çalışması
         stats_values_hp_c.setHorizontalAlignment(JLabel.CENTER);
         stats_values_hp_c.setVerticalAlignment(JLabel.CENTER);
         stats_values_hp_c.setForeground(Color.white);
-        stats_values_hp_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_hp_c.setBounds(47, 106, 53, 25);
 
         stats_values_xp_c.setText("0.0"); // görsellik çalışması
         stats_values_xp_c.setHorizontalAlignment(JLabel.CENTER);
         stats_values_xp_c.setVerticalAlignment(JLabel.CENTER);
         stats_values_xp_c.setForeground(Color.white);
-        stats_values_xp_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_xp_c.setBounds(47, 137, 53, 25);
 
         stats_values_lvl_c.setText("1.0"); // görsellik çalışması
         stats_values_lvl_c.setHorizontalAlignment(JLabel.CENTER);
         stats_values_lvl_c.setVerticalAlignment(JLabel.CENTER);
         stats_values_lvl_c.setForeground(Color.white);
-        stats_values_lvl_c.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_c.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_lvl_c.setBounds(47, 168, 53, 25);
 
         JLabel stats_name_d = new JLabel(); // görsellik çalışması
@@ -349,7 +349,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_d.setHorizontalAlignment(JLabel.LEFT);
         stats_name_d.setVerticalAlignment(JLabel.CENTER);
         stats_name_d.setForeground(Color.white);
-        stats_name_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_d.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_d.setBounds(0, 111, 36, 20);
 
         JLabel stats_name_2_d = new JLabel(); // görsellik çalışması
@@ -357,7 +357,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_2_d.setHorizontalAlignment(JLabel.LEFT);
         stats_name_2_d.setVerticalAlignment(JLabel.CENTER);
         stats_name_2_d.setForeground(Color.white);
-        stats_name_2_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_d.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_2_d.setBounds(0, 142, 34, 20);
 
         JLabel stats_name_3_d = new JLabel(); // görsellik çalışması
@@ -365,28 +365,28 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_3_d.setHorizontalAlignment(JLabel.LEFT);
         stats_name_3_d.setVerticalAlignment(JLabel.CENTER);
         stats_name_3_d.setForeground(Color.white);
-        stats_name_3_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_d.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_name_3_d.setBounds(0, 173, 45, 20);
 
         stats_values_hp_d.setText("20.0"); // görsellik çalışması
         stats_values_hp_d.setHorizontalAlignment(JLabel.CENTER);
         stats_values_hp_d.setVerticalAlignment(JLabel.CENTER);
         stats_values_hp_d.setForeground(Color.white);
-        stats_values_hp_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_d.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_hp_d.setBounds(47, 106, 53, 25);
 
         stats_values_xp_d.setText("0.0"); // görsellik çalışması
         stats_values_xp_d.setHorizontalAlignment(JLabel.CENTER);
         stats_values_xp_d.setVerticalAlignment(JLabel.CENTER);
         stats_values_xp_d.setForeground(Color.white);
-        stats_values_xp_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_d.setFont(new Font("Aldrich", Font.PLAIN, 12));;
         stats_values_xp_d.setBounds(47, 137, 53, 25);
 
         stats_values_lvl_d.setText("1.0"); // görsellik çalışması
         stats_values_lvl_d.setHorizontalAlignment(JLabel.CENTER);
         stats_values_lvl_d.setVerticalAlignment(JLabel.CENTER);
         stats_values_lvl_d.setForeground(Color.white);
-        stats_values_lvl_d.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_d.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_values_lvl_d.setBounds(47, 168, 53, 25);
 
         JLabel stats_name_e = new JLabel(); // görsellik çalışması
@@ -394,7 +394,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_e.setHorizontalAlignment(JLabel.LEFT);
         stats_name_e.setVerticalAlignment(JLabel.CENTER);
         stats_name_e.setForeground(Color.white);
-        stats_name_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_name_e.setBounds(0, 111, 36, 20);
 
         JLabel stats_name_2_e = new JLabel(); // görsellik çalışması
@@ -402,7 +402,7 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_2_e.setHorizontalAlignment(JLabel.LEFT);
         stats_name_2_e.setVerticalAlignment(JLabel.CENTER);
         stats_name_2_e.setForeground(Color.white);
-        stats_name_2_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_2_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_name_2_e.setBounds(0, 142, 34, 20);
 
         JLabel stats_name_3_e = new JLabel(); // görsellik çalışması
@@ -410,28 +410,28 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         stats_name_3_e.setHorizontalAlignment(JLabel.LEFT);
         stats_name_3_e.setVerticalAlignment(JLabel.CENTER);
         stats_name_3_e.setForeground(Color.white);
-        stats_name_3_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_name_3_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_name_3_e.setBounds(0, 173, 45, 20);
 
         stats_values_hp_e.setText("20.0"); // görsellik çalışması
         stats_values_hp_e.setHorizontalAlignment(JLabel.CENTER);
         stats_values_hp_e.setVerticalAlignment(JLabel.CENTER);
         stats_values_hp_e.setForeground(Color.white);
-        stats_values_hp_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_hp_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_values_hp_e.setBounds(47, 106, 53, 25);
 
         stats_values_xp_e.setText("0.0"); // görsellik çalışması
         stats_values_xp_e.setHorizontalAlignment(JLabel.CENTER);
         stats_values_xp_e.setVerticalAlignment(JLabel.CENTER);
         stats_values_xp_e.setForeground(Color.white);
-        stats_values_xp_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_xp_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_values_xp_e.setBounds(47, 137, 53, 25);
 
         stats_values_lvl_e.setText("1.0"); // görsellik çalışması
         stats_values_lvl_e.setHorizontalAlignment(JLabel.CENTER);
         stats_values_lvl_e.setVerticalAlignment(JLabel.CENTER);
         stats_values_lvl_e.setForeground(Color.white);
-        stats_values_lvl_e.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        stats_values_lvl_e.setFont(new Font("Aldrich", Font.PLAIN, 12));
         stats_values_lvl_e.setBounds(47, 168, 53, 25);
 
         but_array = new JButton[5]; // burada buton tanımlıyoruz 5 tane
@@ -640,14 +640,14 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         damage_interface_taken_name.setHorizontalAlignment(JLabel.CENTER);
         damage_interface_taken_name.setVerticalAlignment(JLabel.CENTER);
         damage_interface_taken_name.setForeground(Color.white);
-        damage_interface_taken_name.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_taken_name.setFont(new Font("Aldrich", Font.PLAIN, 12));
         damage_interface_taken_name.setBounds(0, 50, 185, 20);
 
         damage_interface_taken_value.setText("20");
         damage_interface_taken_value.setHorizontalAlignment(JLabel.CENTER);
         damage_interface_taken_value.setVerticalAlignment(JLabel.CENTER);
         damage_interface_taken_value.setForeground(Color.white);
-        damage_interface_taken_value.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_taken_value.setFont(new Font("Aldrich", Font.PLAIN, 12));
         damage_interface_taken_value.setBounds(198, 44, 44, 35);
 
         JLabel damage_interface_given_name = new JLabel(); // burada pencereleri yine başka pencerelerin içine
@@ -657,14 +657,14 @@ public class game_Frame_3_1 extends JFrame implements ActionListener {
         damage_interface_given_name.setHorizontalAlignment(JLabel.CENTER);
         damage_interface_given_name.setVerticalAlignment(JLabel.CENTER);
         damage_interface_given_name.setForeground(Color.white);
-        damage_interface_given_name.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_given_name.setFont(new Font("Aldrich", Font.PLAIN, 12));
         damage_interface_given_name.setBounds(0, 7, 185, 20);
 
         damage_interface_given_value.setText("20");
         damage_interface_given_value.setHorizontalAlignment(JLabel.CENTER);
         damage_interface_given_value.setVerticalAlignment(JLabel.CENTER);
         damage_interface_given_value.setForeground(Color.white);
-        damage_interface_given_value.setFont(new Font("Aldrich", Font.PLAIN, 20));
+        damage_interface_given_value.setFont(new Font("Aldrich", Font.PLAIN, 12));
         damage_interface_given_value.setBounds(198, 0, 44, 33);
 
         pc_interface = new JPanel(); // yine pencere düzenlemerleri
