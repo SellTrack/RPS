@@ -23,16 +23,16 @@
 
  Each item deal and take damage themselves. Next round is no different. As round goes items hp will be deplate and not usable due to damages it took. The card which deal the last damage and eliminates his opponents item, will gain xp. 2 elimination will cause level up for that item and starts to deal damage even more . Game goes like this untill round limit. who has the most hp sum of all of his items wins the game.
 
- * :sparkles: You select your name and round limit
- * :sparkles: You can select up to 3 from same item
+  :sparkles: You select your name and round limit
+  :sparkles: You can select up to 3 from same item
  
- * :exclamation: You need to select at least one from each item
+  :exclamation: You need to select at least one from each item
 
   ### :video_game: Computer vs. Computer
   In this game mode, 2 sides selects item and plays. You will be just watching it. There is no round limit so one side must loose all of his items.
  
   Next round button starts a new round, finish button exits game before it finishes.
 
-  * :exclamation: There is quite a possible chance that game will lock and be in endless loop. Use finish button to exit the loop.
+   :exclamation: There is quite a possible chance that game will lock and be in endless loop. Use finish button to exit the loop.
 
 
