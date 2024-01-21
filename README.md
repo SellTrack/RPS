@@ -24,6 +24,7 @@
  Each item deal and take damage themselves. Next round is no different. As round goes items hp will be deplate and not usable due to damages it took. The card which deal the last damage and eliminates his opponents item, will gain xp. 2 elimination will cause level up for that item and starts to deal damage even more . Game goes like this untill round limit. who has the most hp sum of all of his items wins the game.
 
   :sparkles: You select your name and round limit
+  
   :sparkles: You can select up to 3 from same item
  
   :exclamation: You need to select at least one from each item
