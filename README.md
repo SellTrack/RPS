@@ -20,7 +20,7 @@
 
  ### :video_game: Player vs. Computer
 
-[![GitHub Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)](https://octodex.github.com/)
+[![GitHub Octocat](https://github.com/SellTrack/RPS/blob/main/RPS/sprites/readmeimage2.jpg?raw=true)](https://github.com/SellTrack/RPS/blob/main/RPS/sprites/readmeimage2.jpg?raw=true)
 
 
  You will need to select rock, paper or scissors 5 times. This game has round based system, so you will need to select one of your items for the round and opponent selects his owns.
