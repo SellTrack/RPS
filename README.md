@@ -7,7 +7,7 @@
  Java based expanded rock,paper and scissors game made with my friend Emre Yılmaz for School Project
 
  # :question: Which language and libraries used for this project
- This project developed using Java language and pygame libraries.
+ This project developed using Java language and awt, swing libraries.
 
  # :question: What is required for play the game
  Java must be installed to computer
@@ -49,5 +49,15 @@
   Next round button starts a new round, finish button exits game before it finishes.
 
    :exclamation: There is quite a possible chance that game will lock and be in endless loop. Use finish button to exit the loop.
+
+
+ # :sparkles: What i learned from this
+ I learned classes, structers, image viewing and moving my algorithm knowledge more further.
+
+ :white_check_mark: Making gui in java
+
+ :white_check_mark: image showcase
+
+ :white_check_mark: classes in java
 
 
