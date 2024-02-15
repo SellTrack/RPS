@@ -60,4 +60,16 @@
 
  :white_check_mark: classes in java
 
+ :white_check_mark: Object oriented programming
+
+ :white_check_mark: Inheritence
+
+ :white_check_mark: Polymorphism
+
+ :white_check_mark: Data Abstraction
+
+ :white_check_mark: Encapsulation
+
+
+
 
